@@ -13,8 +13,7 @@ interface MovieDetailProps {
 }
 
 export async function generateStaticParams(
-  aspectRatio: "portrait" | "square"
-): Promise<MovieDetailProps> {
+  aspectRatio: "portrait" | "square"): Promise<MovieDetailProps> {
   const data = await fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
   );
@@ -40,7 +39,6 @@ export default async function MovieDetail({ params }: { params: any }) {
     `https://api.themoviedb.org/3/movie/${movie}/images?api_key=${process.env.API_KEY}`
   );
   const resI = await img.json();
- 
 
   function toHoursAndMinutes(totalMinutes: any) {
     const minutes = totalMinutes % 60;
@@ -88,7 +86,9 @@ export default async function MovieDetail({ params }: { params: any }) {
           </div>
           <div className=" md:flex-col basis-3/4">
             <div className="flex flex-row gap-4 pt-7">
-              <h2 className="text-3xl font-semibold font-sans justify-center">{res.title}</h2>
+              <h2 className="text-3xl font-semibold font-sans justify-center">
+                {res.title}
+              </h2>
             </div>
             <div className="flex flex-row gap-1 pt-4 align-middle ">
               <h2 className="flex flex-row gap-1">
@@ -98,8 +98,8 @@ export default async function MovieDetail({ params }: { params: any }) {
                   </Badge>
                 ))}
               </h2>
-              <h2 className=" text-xs sm:text-sm font-thin ">
-                "{formatReleaseDate(res.release_date)}"
+              <h2 className="text-xs sm:text-sm font-thin">
+                {formatReleaseDate(res.release_date)}
               </h2>
             </div>
             <h2 className="pt-3"> {toHoursAndMinutes(time)} </h2>
@@ -125,3 +125,4 @@ export default async function MovieDetail({ params }: { params: any }) {
     </main>
   );
 }
+MovieDetail.displayName = 'MovieDetail';
