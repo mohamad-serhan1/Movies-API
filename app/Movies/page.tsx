@@ -2,7 +2,7 @@
 import React from "react";
 import Movie from "@/components/movie";
 
-export default async function getMovieList({ movies }: { movies: any }) {
+ async function MoviesPage () {
   const popular = await fetch(`
   https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`);
   const response = await popular.json();
@@ -31,3 +31,5 @@ export default async function getMovieList({ movies }: { movies: any }) {
     </main>
   );
 }
+
+export default MoviesPage;
