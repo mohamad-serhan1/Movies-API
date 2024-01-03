@@ -1,7 +1,4 @@
-
 import DraggableScroll from "@/components/draggable-scroll";
-
-
 
 interface movies {
   id: number;
@@ -11,7 +8,7 @@ interface movies {
   vote_average: string;
 }
 
-export default async function Home() {
+async function Home() {
   const time_window = "day";
 
   const data = await fetch(
@@ -23,22 +20,15 @@ export default async function Home() {
   https://api.themoviedb.org/3/trending/movie/${time_window}?api_key=${process.env.API_KEY}`);
   const response = await trend.json();
 
-
-
   return (
     <main className="flex flex-col p-10 relative">
-      
-
       <section>
         <div className=" overflow-hidden rounded-md pt-5">
           <h1 className="font-semibold text-2xl px-4 pb-3">Trending Movies</h1>
 
           <DraggableScroll responseTv={response} />
-          
         </div>
       </section>
-
-    
 
       <section>
         <div className=" relative overflow-hidden rounded-md pt-5">
@@ -50,3 +40,4 @@ export default async function Home() {
     </main>
   );
 }
+export default Home;

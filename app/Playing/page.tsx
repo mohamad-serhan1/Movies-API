@@ -2,11 +2,10 @@
 import React from "react";
 import Movie from "@/components/movie";
 
-export default async function getMovieList({ movies }: { movies: any }) {
+async function getMovieList() {
   const popular = await fetch(`
   https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.API_KEY}`);
   const response = await popular.json();
-
 
   return (
     <main className="p-24 space-y-9">
@@ -29,3 +28,4 @@ export default async function getMovieList({ movies }: { movies: any }) {
     </main>
   );
 }
+export default getMovieList;
