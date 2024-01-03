@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Nav from "@/components/Nav";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 
@@ -13,7 +12,8 @@ interface MovieDetailProps {
 }
 
 export async function generateStaticParams(
-  aspectRatio: "portrait" | "square"): Promise<MovieDetailProps> {
+  aspectRatio: "portrait" | "square"
+): Promise<MovieDetailProps> {
   const data = await fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
   );
@@ -125,4 +125,3 @@ export default async function MovieDetail({ params }: { params: any }) {
     </main>
   );
 }
-MovieDetail.displayName = 'MovieDetail';

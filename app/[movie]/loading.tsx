@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
-function MovieLoading() {
+export default function MovieLoading() {
   return (
     <div className="p-12 ">
       <div className="flex items-center space-x-4 pt-10">
@@ -25,5 +25,3 @@ function MovieLoading() {
     </div>
   );
 }
-MovieLoading.displayName = 'MovieLoading';
-export default MovieLoading;
