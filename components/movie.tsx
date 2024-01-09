@@ -14,7 +14,7 @@ interface Movie {
   className?: string;
 }
 
-export default function Movie({
+function Movie({
   title,
   id,
   poster_path,
@@ -62,3 +62,4 @@ export default function Movie({
     </div>
   );
 }
+export default Movie;

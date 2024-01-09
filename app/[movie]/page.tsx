@@ -24,7 +24,7 @@ export async function generateStaticParams(
   }));
 }
 
-export default async function MovieDetail({ params }: { params: any }) {
+ async function MovieDetail({ params }: { params: any }) {
   const movieData = await generateStaticParams("portrait");
 
   const { movie } = params;
@@ -125,3 +125,4 @@ export default async function MovieDetail({ params }: { params: any }) {
     </main>
   );
 }
+export default MovieDetail;
