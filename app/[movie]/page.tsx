@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
-
+import axios from "axios";
 interface MovieDetailProps {
   params: {
     movie: string;
@@ -11,19 +11,32 @@ interface MovieDetailProps {
   genre?: string;
 }
 
-export async function generateStaticParams() {
-  const data = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
-  );
-  const res = await data.json();
+export async function generateStaticParams(
+  aspectRatio: "portrait" | "square"
+): Promise<MovieDetailProps> {
+  try {
+    const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`);
+    const res = response.data;
 
-  return res.results.map((movie: any) => ({
-    movie: movie.id.toString(),
-  }));
+    // Assuming you want to return the first movie from the popular list
+    const firstMovie = res.results[0];
+
+    return {
+      params: {
+        movie: firstMovie.id.toString(),
+      },
+      aspectRatio: aspectRatio, // You can assign aspectRatio here if needed
+      // Add other properties you need here
+    };
+  } catch (error) {
+    // Handle errors here, e.g., log the error or throw it further
+    console.error("Error fetching data:", error);
+    throw error;
+  }
 }
 
  async function MovieDetail({ params }: { params: any }) {
-  const movieData = await generateStaticParams();
+  const movieData = await generateStaticParams("portrait");
 
   const { movie } = params;
   const imagePath = "https://image.tmdb.org/t/p/original";
