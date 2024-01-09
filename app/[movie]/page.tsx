@@ -11,9 +11,7 @@ interface MovieDetailProps {
   genre?: string;
 }
 
-export async function generateStaticParams(
-  aspectRatio: "portrait" | "square"
-): Promise<MovieDetailProps> {
+export async function generateStaticParams(): Promise<MovieDetailProps> {
   const data = await fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
   );
@@ -25,7 +23,7 @@ export async function generateStaticParams(
 }
 
  async function MovieDetail({ params }: { params: any }) {
-  const movieData = await generateStaticParams("portrait");
+  const movieData = await generateStaticParams();
 
   const { movie } = params;
   const imagePath = "https://image.tmdb.org/t/p/original";
