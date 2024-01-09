@@ -11,7 +11,7 @@ interface MovieDetailProps {
   genre?: string;
 }
 
-export async function generateStaticParams(): Promise<MovieDetailProps> {
+export async function generateStaticParams() {
   const data = await fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
   );
