@@ -27,8 +27,6 @@ export default function Nav() {
     setVisible(visible);
   };
 
-
-
   return (
     <div
       className={`z-10 fixed top-0 left-0 right-0 px-10 sm:py-3 border-b bg-transparent  ${
@@ -38,57 +36,49 @@ export default function Nav() {
     >
       <div className=" flex flex-row">
         <div className="flex basis-3/4 flex-row gap-4">
-
-        
-        <h1 className=" text-3xl py-2 hidden sm:inline-block">
-          <Link href={"/"}> Movie</Link>
-        </h1>
-        <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>More..</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="flex flex-col w-full px-10 py-5 text-sm">
-                      <NavigationMenuLink>
-                        <Link className="border-b inline-block" href={"/Movies"}>
-                          
-                          Movies
-                        </Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink>
-                        <Link className="border-b" href={"/Trending"}>
-                          
-                          Trending
-                        </Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink>
-                        <Link className="border-b inline-block" href={"/Playing"}>
-                          <h1>
-                          NowPlaying
-
-                          </h1>
-                        </Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink>
-                        <Link className="border-b" href={"#"}>
-                    
-                          About
-                        </Link>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            </div>
-        <div className="flex basis-1/4 gap-5 justify-end  ">
+          <h1 className=" text-3xl py-2  sm:inline-block">
+            <Link href={"/"}> Movie</Link>
+          </h1>
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>More..</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="flex flex-col w-full px-10 py-5 text-sm">
+                    <NavigationMenuLink>
+                      <Link className="border-b inline-block" href={"/Movies"}>
+                        Movies
+                      </Link>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink>
+                      <Link className="border-b" href={"/Trending"}>
+                        Trending
+                      </Link>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink>
+                      <Link className="border-b inline-block" href={"/Playing"}>
+                        <h1>NowPlaying</h1>
+                      </Link>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink>
+                      <Link className="border-b" href={"#"}>
+                        About
+                      </Link>
+                    </NavigationMenuLink>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
+        <div className="flex basis-1/4 gap-5 justify-end p-2 ">
           <p>
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
           </p>
-          
+
           <h2>
             <ModeToggle />
           </h2>
