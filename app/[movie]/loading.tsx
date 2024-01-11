@@ -14,7 +14,6 @@ function MovieLoading() {
 
           <div className=" flex flex-row gap-4 ">
             <Skeleton className="h-4 w-[50px]" />
-
             <Skeleton className="h-4 w-[50px]" />
             <Skeleton className="h-4 w-[50px]" />
           </div>
