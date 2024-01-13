@@ -18,7 +18,7 @@ async function getMovieList() {
             title={movie.title}
             poster_path={movie.poster_path}
             release_date={movie.release_date}
-            className="w-[150px] sm:w-[250px]"
+            className="w-[230px] sm:w-[250px]"
             vote_average={movie.vote_average}
             aspectRatio="portrait"
             genres={movie.genres}
