@@ -13,7 +13,7 @@ import Movie from "@/components/movie";
     <main className="p-24">
         <h1 className="font-bold text-2xl pb-9">Popular Movies</h1>
 
-      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {response.results.map((movie: any) => (
           <Movie
             key={movie.id}
@@ -21,7 +21,7 @@ import Movie from "@/components/movie";
             title={movie.title}
             poster_path={movie.poster_path}
             release_date={movie.release_date}
-            className="w-[150px] sm:w-[250px]"
+            className="w-[250px] sm:w-[250px]"
             vote_average={movie.vote_average}
             aspectRatio="portrait"
             genres={movie.genres}
