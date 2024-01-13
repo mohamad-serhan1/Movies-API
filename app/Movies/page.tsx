@@ -10,10 +10,10 @@ import Movie from "@/components/movie";
 
 
   return (
-    <main className="p-24">
+    <main className="p-12 sm:p-24">
         <h1 className="font-bold text-2xl pb-9">Popular Movies</h1>
 
-      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-9">
         {response.results.map((movie: any) => (
           <Movie
             key={movie.id}
